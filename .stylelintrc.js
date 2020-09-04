@@ -1,6 +1,7 @@
 module.exports = {
-  extends: [require.resolve("@umijs/fabric/dist/stylelint")],
+  extends: [require.resolve('@umijs/fabric/dist/stylelint')],
   rules: {
-    // your rules
+    'at-rule-no-unknown': null,
+    'scss/at-rule-no-unknown': true,
   },
 };

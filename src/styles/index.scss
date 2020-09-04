@@ -1,0 +1,8 @@
+// sass与css import区别：css会为import的css文件创建 http 请求，而sass是import其它文件并最终编译成一个css
+// sass支持模块化：_ 开头的文件（如 _variables.scss）不能直接编译成单独的css，只能作为一个 部分 被导入到其它文件中一起编译
+
+// config
+@import 'variables'; // 导入的时候不需要加下划线 _
+
+// layout
+@import 'reboot';
