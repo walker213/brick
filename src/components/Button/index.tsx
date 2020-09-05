@@ -13,25 +13,29 @@ type ButtonSize = 'lg' | 'sm';
 type ButtonType = 'primary' | 'default' | 'danger' | 'link';
 
 interface BaseButtonProps {
-  className?: string;
-  disabled?: boolean;
+  // className/children 出自原生接口，不用自定义
+  disabled?: boolean; // button有，a没有
+  href?: string; // button没有，a有
   size?: ButtonSize;
-  type?: ButtonType;
-  href?: string;
+  btnType?: ButtonType; // 怎么写成type而与原生type不冲突呢？
 }
 
-const Button: React.FC<BaseButtonProps> = (props) => {
-  const { type, disabled, size, href, className, children, ...restProps } = props;
+type NativeButtonProps = BaseButtonProps & React.ButtonHTMLAttributes<HTMLElement>; // button上的原生属性如 type
+type AnchorButtonProps = BaseButtonProps & React.AnchorHTMLAttributes<HTMLElement>; // a 上的原生属性如 target
+export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>; // 将所有属性全部设置为可选（因为a和button上的必需属性不相同）
+
+const Button: React.FC<ButtonProps> = (props) => {
+  const { btnType, disabled, size, href, className, children, ...restProps } = props;
   const btnClassName = classnames(
     acp(),
     acp(size),
-    acp(type),
-    { disabled: type === 'link' && disabled },
+    acp(btnType),
+    { disabled: btnType === 'link' && disabled },
     className,
   );
-  if (type === 'link' && href) {
+  if (btnType === 'link' && href) {
     return (
-      <a href={href} className={btnClassName}>
+      <a href={href} className={btnClassName} {...restProps}>
         {children}
       </a>
     );
@@ -45,7 +49,7 @@ const Button: React.FC<BaseButtonProps> = (props) => {
 
 Button.defaultProps = {
   disabled: false,
-  type: 'default',
+  btnType: 'default',
 };
 
 export default Button;

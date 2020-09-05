@@ -4,18 +4,18 @@ import Button from './components/Button';
 function App() {
   return (
     <div>
-      <Button type="primary">primary</Button>
-      <Button type="danger">danger</Button>
-      <Button type="default" size="lg">
+      <Button btnType="primary">primary</Button>
+      <Button btnType="danger">danger</Button>
+      <Button btnType="default" size="lg">
         default && lg
       </Button>
       <Button disabled size="sm">
         disabled && sm
       </Button>
-      <Button type="link" href="https://www.baidu.com">
+      <Button btnType="link" href="https://www.baidu.com" target="_blank">
         百度
       </Button>
-      <Button type="link" href="https://www.baidu.com" disabled>
+      <Button btnType="link" href="https://www.baidu.com" disabled>
         disabled link
       </Button>
     </div>
