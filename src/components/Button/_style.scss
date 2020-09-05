@@ -1,0 +1,29 @@
+.bui-btn {
+  position: relative;
+  display: inline-block;
+  padding: $btn-padding-y $btn-padding-x;
+  color: $body-color;
+  font-weight: $btn-font-weight;
+  font-size: $btn-font-size;
+  line-height: $btn-line-height;
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: middle;
+  background-color: $white;
+  background-image: none;
+  border: $btn-border-width solid transparent;
+  border-radius: $border-radius;
+  box-shadow: $btn-box-shadow;
+  cursor: pointer;
+  transition: $btn-transition;
+
+  &-disabled,
+  &[disabled] {
+    box-shadow: none;
+    cursor: not-allowed;
+    opacity: $btn-disabled-opacity;
+    > * {
+      pointer-events: none; // 屏蔽所有鼠标事件
+    }
+  }
+}

@@ -22,7 +22,13 @@ interface BaseButtonProps {
 
 const Button: React.FC<BaseButtonProps> = (props) => {
   const { type, disabled, size, href, className, children, ...restProps } = props;
-  const btnClassName = classnames(acp(), acp(size), acp(type), className);
+  const btnClassName = classnames(
+    acp(),
+    acp(size),
+    acp(type),
+    { [acp('disabled')]: type === 'link' && disabled },
+    className,
+  );
   if (type === 'link' && href) {
     return (
       <a href={href} className={btnClassName}>
