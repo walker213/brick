@@ -1,10 +1,10 @@
 .bui-btn {
   position: relative;
   display: inline-block;
-  padding: $btn-padding-y $btn-padding-x;
+  @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $border-radius);
+
   color: $body-color;
   font-weight: $btn-font-weight;
-  font-size: $btn-font-size;
   line-height: $btn-line-height;
   white-space: nowrap;
   text-align: center;
@@ -12,7 +12,6 @@
   background-color: $white;
   background-image: none;
   border: $btn-border-width solid transparent;
-  border-radius: $border-radius;
   box-shadow: $btn-box-shadow;
   cursor: pointer;
   transition: $btn-transition;
@@ -24,6 +23,51 @@
     opacity: $btn-disabled-opacity;
     > * {
       pointer-events: none; // 屏蔽所有鼠标事件
+    }
+  }
+
+  &-lg {
+    @include button-size(
+      $btn-padding-y-lg,
+      $btn-padding-x-lg,
+      $btn-font-size-lg,
+      $border-radius-lg
+    );
+  }
+  &-sm {
+    @include button-size(
+      $btn-padding-y-sm,
+      $btn-padding-x-sm,
+      $btn-font-size-sm,
+      $border-radius-sm
+    );
+  }
+
+  &-primary {
+    @include button-style($primary, $primary, $white);
+  }
+  &-danger {
+    @include button-style($danger, $danger, $white);
+  }
+  &-default {
+    @include button-style($white, $gray-400, $body-color, $white, $primary, $primary);
+  }
+  &-link {
+    color: $btn-link-color;
+    font-weight: $font-weight-normal;
+    text-decoration: $link-decoration;
+    box-shadow: none;
+    &:hover {
+      color: $btn-link-hover-color;
+      text-decoration: $link-hover-decoration;
+    }
+    &:focus {
+      text-decoration: $link-hover-decoration;
+      box-shadow: none;
+    }
+    &.disabled {
+      color: $btn-link-disabled-color;
+      pointer-events: none;
     }
   }
 }

@@ -26,7 +26,7 @@ const Button: React.FC<BaseButtonProps> = (props) => {
     acp(),
     acp(size),
     acp(type),
-    { [acp('disabled')]: type === 'link' && disabled },
+    { disabled: type === 'link' && disabled },
     className,
   );
   if (type === 'link' && href) {
