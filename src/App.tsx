@@ -1,6 +1,7 @@
 import React from 'react';
-import Button from './components/Button';
-import Menu from './components/Menu';
+import Button from './components/Button/button';
+import Menu from './components/Menu/menu';
+import MenuItem from './components/Menu/menuItem';
 
 function App() {
   return (
@@ -25,7 +26,11 @@ function App() {
       </section>
       <section>
         <h1>Menu</h1>
-        <Menu />
+        <Menu>
+          <MenuItem>1</MenuItem>
+          <MenuItem>2</MenuItem>
+          <MenuItem>3</MenuItem>
+        </Menu>
       </section>
     </div>
   );

@@ -22,9 +22,7 @@ const Menu: React.FC<MenuProps> = (props) => {
   );
   return (
     <ul className={classes} style={style} {...restProps}>
-      <li>menu item1</li>
-      <li>menu item2</li>
-      <li>menu item3</li>
+      {children}
     </ul>
   );
 };
