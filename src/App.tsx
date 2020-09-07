@@ -15,6 +15,7 @@ function App() {
       <Button btnType="link" href="https://www.baidu.com" target="_blank">
         百度
       </Button>
+      <Button btnType="link">百度無連接</Button>
       <Button btnType="link" href="https://www.baidu.com" disabled>
         disabled link
       </Button>

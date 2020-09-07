@@ -16,7 +16,7 @@
   cursor: pointer;
   transition: $btn-transition;
 
-  &-disabled,
+  &.disabled,
   &[disabled] {
     box-shadow: none;
     cursor: not-allowed;

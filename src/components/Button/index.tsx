@@ -7,7 +7,7 @@ function addClassPrefixHOF(prefix: string) {
   };
 }
 
-const acp = addClassPrefixHOF('bui-btn');
+const getFullClassName = addClassPrefixHOF('bui-btn');
 
 type ButtonSize = 'lg' | 'sm';
 type ButtonType = 'primary' | 'default' | 'danger' | 'link';
@@ -27,9 +27,9 @@ export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>; // 将
 const Button: React.FC<ButtonProps> = (props) => {
   const { btnType, disabled, size, href, className, children, ...restProps } = props;
   const btnClassName = classnames(
-    acp(),
-    acp(size),
-    acp(btnType),
+    getFullClassName(),
+    getFullClassName(size),
+    getFullClassName(btnType),
     { disabled: btnType === 'link' && disabled },
     className,
   );
