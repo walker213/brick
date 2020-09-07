@@ -1,11 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-
-function addClassPrefixHOF(prefix: string) {
-  return (name?: string): string => {
-    return [prefix, name].filter(Boolean).join('-');
-  };
-}
+import { addClassPrefixHOF } from '../../utils';
 
 const getFullClassName = addClassPrefixHOF('bui-btn');
 
@@ -26,7 +21,7 @@ export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>; // 将
 
 const Button: React.FC<ButtonProps> = (props) => {
   const { btnType, disabled, size, href, className, children, ...restProps } = props;
-  const btnClassName = classnames(
+  const classes = classnames(
     getFullClassName(),
     getFullClassName(size),
     getFullClassName(btnType),
@@ -35,13 +30,13 @@ const Button: React.FC<ButtonProps> = (props) => {
   );
   if (btnType === 'link' && href) {
     return (
-      <a href={href} className={btnClassName} {...restProps}>
+      <a href={href} className={classes} {...restProps}>
         {children}
       </a>
     );
   }
   return (
-    <button type="button" className={btnClassName} disabled={disabled} {...restProps}>
+    <button type="button" className={classes} disabled={disabled} {...restProps}>
       {children}
     </button>
   );
