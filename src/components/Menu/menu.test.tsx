@@ -65,4 +65,18 @@ describe('test Menu and MenuItem component', () => {
     menuElement = wrapper.getByTestId('test-menu');
     expect(menuElement).toBeInTheDocument();
   });
+  // it('should throw error when Menu has a child which is not a MenuItem', () => {
+  //   expect(() => {
+  //     render(
+  //       <Menu>
+  //         <MenuItem index={0}>active</MenuItem>
+  //         <MenuItem index={1} disabled>
+  //           disabled
+  //         </MenuItem>
+  //         <MenuItem index={2}>xyz</MenuItem>
+  //         <li>wrong children!</li>
+  //       </Menu>,
+  //     );
+  //   }).toThrow();
+  // });
 });

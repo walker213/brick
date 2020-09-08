@@ -1,5 +1,6 @@
 import React, { createContext, useState } from 'react';
 import classnames from 'classnames';
+import { MenuItemProps } from './menuItem';
 import { addClassPrefixHOF } from '../../utils';
 
 const getFullClassName = addClassPrefixHOF('bui-menu');
@@ -39,10 +40,22 @@ const Menu: React.FC<MenuProps> = (props) => {
     index: currentActive,
     onSelect: handleClick,
   };
+
+  const renderChildren = () => {
+    // React.Children.map用于遍历children，如遇到不可遍历的children会自动跳过？
+    return React.Children.map(children, (child) => {
+      // 断言child 为 React.FunctionComponentElement
+      const childElement = child as React.FunctionComponentElement<MenuItemProps>;
+      const { displayName } = childElement.type;
+      if (displayName === 'MenuItem') return child;
+      throw new Error('error:Menu has a child which is not a MenuItem component');
+    });
+  };
+
   return (
     // testid便于testing-library测试
     <ul className={classes} style={style} {...restProps} data-testid="test-menu">
-      <MenuContext.Provider value={passContext}>{children}</MenuContext.Provider>
+      <MenuContext.Provider value={passContext}>{renderChildren()}</MenuContext.Provider>
     </ul>
   );
 };
