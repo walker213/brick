@@ -40,7 +40,8 @@ const Menu: React.FC<MenuProps> = (props) => {
     onSelect: handleClick,
   };
   return (
-    <ul className={classes} style={style} {...restProps}>
+    // testid便于testing-library测试
+    <ul className={classes} style={style} {...restProps} data-testid="test-menu">
       <MenuContext.Provider value={passContext}>{children}</MenuContext.Provider>
     </ul>
   );
