@@ -8,6 +8,7 @@ const getFullClassName = addClassPrefixHOF('bui-menu');
 type MenuMode = 'vertical' | 'horizontal';
 type SelectCallback = (selectedIndex: number) => void;
 export interface MenuProps {
+  // 如何给MenuProps扩展原生属性？
   defaultIndex?: number;
   mode?: MenuMode;
   style?: React.CSSProperties;
@@ -43,11 +44,11 @@ const Menu: React.FC<MenuProps> = (props) => {
 
   const renderChildren = () => {
     // React.Children.map用于遍历children，如遇到不可遍历的children会自动跳过？
-    return React.Children.map(children, (child) => {
+    return React.Children.map(children, (child, index) => {
       // 断言child 为 React.FunctionComponentElement
       const childElement = child as React.FunctionComponentElement<MenuItemProps>;
       const { displayName } = childElement.type;
-      if (displayName === 'MenuItem') return child;
+      if (displayName === 'MenuItem') return React.cloneElement(childElement, { index });
       throw new Error('error:Menu has a child which is not a MenuItem component');
     });
   };

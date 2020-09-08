@@ -6,7 +6,7 @@ import { addClassPrefixHOF } from '../../utils';
 const getFullClassName = addClassPrefixHOF('bui-menu-item');
 
 export interface MenuItemProps {
-  index: number;
+  index?: number;
   disabled?: boolean;
   style?: React.CSSProperties;
   className?: string;
@@ -24,7 +24,7 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
     className,
   );
   const handleClick = () => {
-    if (context.onSelect && !disabled) {
+    if (context.onSelect && !disabled && typeof index === 'number') {
       context.onSelect(index);
     }
   };
