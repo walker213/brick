@@ -27,7 +27,16 @@ function App() {
       <section>
         <h1>Menu</h1>
         <Menu>
-          <MenuItem index={0}>1</MenuItem>
+          <MenuItem index={0} disabled>
+            1
+          </MenuItem>
+          <MenuItem index={1}>2</MenuItem>
+          <MenuItem index={2}>3</MenuItem>
+        </Menu>
+        <Menu mode="vertical">
+          <MenuItem index={0} disabled>
+            1
+          </MenuItem>
           <MenuItem index={1}>2</MenuItem>
           <MenuItem index={2}>3</MenuItem>
         </Menu>

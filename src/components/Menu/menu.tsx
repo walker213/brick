@@ -26,7 +26,7 @@ const Menu: React.FC<MenuProps> = (props) => {
   const [currentActive, setActive] = useState<number>(defaultIndex);
   const classes = classnames(
     getFullClassName(),
-    { [getFullClassName('verticla')]: mode === 'vertical' },
+    { [getFullClassName('vertical')]: mode === 'vertical' },
     className,
   );
   const handleClick = (index: number) => {
