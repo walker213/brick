@@ -23,9 +23,11 @@ const Button: React.FC<ButtonProps> = (props) => {
   const { btnType, disabled, size, href, className, children, ...restProps } = props;
   const classes = classnames(
     getFullClassName(),
-    getFullClassName(size),
     getFullClassName(btnType),
-    { disabled: btnType === 'link' && disabled },
+    {
+      [getFullClassName(size)]: size,
+      [getFullClassName('link-disabled')]: btnType === 'link' && disabled,
+    },
     className,
   );
   if (btnType === 'link' && href) {
