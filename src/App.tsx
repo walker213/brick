@@ -37,7 +37,7 @@ function App() {
           <MenuItem>2</MenuItem>
           <MenuItem>3</MenuItem>
         </Menu>
-        <Menu mode="vertical">
+        <Menu mode="vertical" defaultOpenSubMenus={['1']}>
           <MenuItem disabled>1</MenuItem>
           <SubMenu title="vertical">
             <MenuItem disabled>1</MenuItem>
