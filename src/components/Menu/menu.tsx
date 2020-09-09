@@ -41,7 +41,6 @@ const Menu: React.FC<MenuProps> = (props) => {
   const classes = classnames(
     getFullClassName(),
     mode === 'vertical' ? getFullClassName('vertical') : getFullClassName('horizontal'),
-    // { [getFullClassName('vertical')]: mode === 'vertical' },
     className,
   );
   const handleClick = (index: string) => {
