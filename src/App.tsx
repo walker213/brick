@@ -2,6 +2,7 @@ import React from 'react';
 import Button from './components/Button/button';
 import Menu from './components/Menu/menu';
 import MenuItem from './components/Menu/menuItem';
+import SubMenu from './components/Menu/submenu';
 
 function App() {
   return (
@@ -34,6 +35,15 @@ function App() {
         <Menu mode="vertical">
           <MenuItem disabled>1</MenuItem>
           <MenuItem>2</MenuItem>
+          <MenuItem>3</MenuItem>
+        </Menu>
+        <Menu mode="vertical">
+          <MenuItem disabled>1</MenuItem>
+          <SubMenu title="haha">
+            <MenuItem disabled>1</MenuItem>
+            <MenuItem>2</MenuItem>
+            <MenuItem>3</MenuItem>
+          </SubMenu>
           <MenuItem>3</MenuItem>
         </Menu>
       </section>

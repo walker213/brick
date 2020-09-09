@@ -28,7 +28,8 @@ const Menu: React.FC<MenuProps> = (props) => {
   const [currentActive, setActive] = useState<number>(defaultIndex);
   const classes = classnames(
     getFullClassName(),
-    { [getFullClassName('vertical')]: mode === 'vertical' },
+    mode === 'vertical' ? getFullClassName('vertical') : getFullClassName('horizontal'),
+    // { [getFullClassName('vertical')]: mode === 'vertical' },
     className,
   );
   const handleClick = (index: number) => {
@@ -48,7 +49,8 @@ const Menu: React.FC<MenuProps> = (props) => {
       // 断言child 为 React.FunctionComponentElement
       const childElement = child as React.FunctionComponentElement<MenuItemProps>;
       const { displayName } = childElement.type;
-      if (displayName === 'MenuItem') return React.cloneElement(childElement, { index });
+      if (displayName === 'MenuItem' || displayName === 'SubMenu')
+        return React.cloneElement(childElement, { index });
       throw new Error('error:Menu has a child which is not a MenuItem component');
     });
   };
