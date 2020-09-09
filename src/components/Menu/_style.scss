@@ -1,0 +1,106 @@
+.bui-menu {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  list-style: none;
+  border-bottom: $menu-border-width solid $menu-border-color;
+  box-shadow: $menu-box-shadow;
+
+  // menu-item
+  & > &-item {
+    padding: $menu-item-padding-y $menu-item-padding-x;
+    cursor: pointer;
+    transition: $menu-transition;
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+    &-active,
+    &:hover {
+      color: $menu-item-active-color;
+      border-bottom: $menu-item-active-border-width solid $menu-item-active-color;
+    }
+    &-disabled {
+      color: $menu-item-disabled-color;
+      border-color: transparent !important;
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+
+  &-submenu {
+    position: relative;
+    .submenu-title {
+      display: flex;
+      align-items: center;
+    }
+    .arrow-icon {
+      margin-left: 3px;
+      transition: transform 0.25s ease-in-out;
+    }
+    &:hover {
+      .arrow-icon {
+        transform: rotate(180deg);
+      }
+    }
+
+    &-list {
+      display: none;
+      padding-left: 0;
+      white-space: nowrap;
+      list-style: none;
+      .bui-menu-item {
+        padding: $menu-item-padding-y $menu-item-padding-x;
+        color: $body-color;
+        cursor: pointer;
+        transition: $menu-transition;
+        &-active,
+        &:hover {
+          color: $menu-item-active-color !important;
+        }
+      }
+    }
+    &-list.menu-opened {
+      display: block;
+    }
+  }
+  .is-vertical {
+    .arrow-icon {
+      transform: rotate(0deg) !important;
+    }
+  }
+  .is-vertical.is-opened {
+    .arrow-icon {
+      transform: rotate(180deg) !important;
+    }
+  }
+
+  &-horizontal {
+    & > .bui-menu-item {
+      border-bottom: $menu-item-active-border-width solid transparent;
+    }
+    .bui-menu-submenu-list {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      z-index: 100;
+      background: $white;
+      border: $menu-border-width solid $menu-border-color;
+      box-shadow: $submenu-box-shadow;
+    }
+  }
+  // vertical mode
+  &-vertical {
+    flex-direction: column;
+    border-right: $menu-border-width solid $menu-border-color;
+    border-bottom: 0;
+    & > .bui-menu-item {
+      border-left: $menu-item-active-border-width solid transparent;
+      &-active,
+      &:hover {
+        border-bottom: 0;
+        border-left: $menu-item-active-border-width solid $menu-item-active-color;
+      }
+    }
+  }
+}

@@ -39,7 +39,16 @@ function App() {
         </Menu>
         <Menu mode="vertical">
           <MenuItem disabled>1</MenuItem>
-          <SubMenu title="haha">
+          <SubMenu title="vertical">
+            <MenuItem disabled>1</MenuItem>
+            <MenuItem>2</MenuItem>
+            <MenuItem>3</MenuItem>
+          </SubMenu>
+          <MenuItem>3</MenuItem>
+        </Menu>
+        <Menu>
+          <MenuItem disabled>1</MenuItem>
+          <SubMenu title="horizontal">
             <MenuItem disabled>1</MenuItem>
             <MenuItem>2</MenuItem>
             <MenuItem>3</MenuItem>
