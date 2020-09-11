@@ -4,6 +4,8 @@ import Menu from './components/Menu/menu';
 import MenuItem from './components/Menu/menuItem';
 import SubMenu from './components/Menu/submenu';
 
+import Icon from './components/Icon/icon';
+
 function App() {
   return (
     <div>
@@ -25,6 +27,12 @@ function App() {
           disabled link
         </Button>
       </section>
+
+      <section>
+        <h1>Icon</h1>
+        <Icon icon="coffee" theme="danger" size="10x" />
+      </section>
+
       <section>
         <h1>Menu</h1>
         <Menu>
