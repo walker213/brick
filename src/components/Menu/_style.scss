@@ -30,12 +30,14 @@
 
   &-submenu {
     position: relative;
-    .submenu-title {
+    padding: $menu-item-padding-y $menu-item-padding-x;
+    cursor: pointer;
+    &-title {
       display: flex;
       align-items: center;
     }
     .arrow-icon {
-      margin-left: 3px;
+      margin-left: 5px;
       transition: transform 0.25s ease-in-out;
     }
     &:hover {
@@ -60,39 +62,33 @@
         }
       }
     }
-    &-list.menu-opened {
+    .menu-opened &-list {
       display: block;
-    }
-  }
-  .is-vertical {
-    .arrow-icon {
-      transform: rotate(0deg) !important;
-    }
-  }
-  .is-vertical.is-opened {
-    .arrow-icon {
-      transform: rotate(180deg) !important;
     }
   }
 
   &-horizontal {
-    & > .bui-menu-item {
-      border-bottom: $menu-item-active-border-width solid transparent;
-    }
-    .bui-menu-submenu-list {
-      position: absolute;
-      top: calc(100% + 8px);
-      left: 0;
-      z-index: 100;
-      background: $white;
-      border: $menu-border-width solid $menu-border-color;
-      box-shadow: $submenu-box-shadow;
+    .bui-menu-submenu {
+      border-bottom-color: $menu-item-active-border-width solid transparent;
+      &:hover {
+        border-bottom: $menu-item-active-border-width solid $menu-item-active-color;
+      }
+      &-list {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        z-index: 100;
+        width: 100%;
+        background: $white;
+        border: $menu-border-width solid $menu-border-color;
+        box-shadow: $submenu-box-shadow;
+      }
     }
   }
   // vertical mode
   &-vertical {
     flex-direction: column;
-    border-right: $menu-border-width solid $menu-border-color;
+    // border-right: $menu-border-width solid $menu-border-color;
     border-bottom: 0;
     & > .bui-menu-item {
       border-left: $menu-item-active-border-width solid transparent;
@@ -100,6 +96,21 @@
       &:hover {
         border-bottom: 0;
         border-left: $menu-item-active-border-width solid $menu-item-active-color;
+      }
+    }
+    .bui-menu-submenu {
+      border-left: $menu-item-active-border-width solid transparent;
+      &:hover {
+        border-left-color: $menu-item-active-color;
+      }
+      &-title:hover {
+        color: $menu-item-active-color;
+      }
+      .arrow-icon {
+        transform: rotate(0deg);
+      }
+      &.menu-opened .arrow-icon {
+        transform: rotate(180deg) !important;
       }
     }
   }
