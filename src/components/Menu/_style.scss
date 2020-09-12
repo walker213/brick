@@ -47,7 +47,7 @@
     }
 
     &-list {
-      display: none;
+      // display: none;
       padding-left: 0;
       white-space: nowrap;
       list-style: none;
@@ -62,9 +62,9 @@
         }
       }
     }
-    .menu-opened &-list {
-      display: block;
-    }
+    // .menu-opened &-list {
+    //   display: block;
+    // }
   }
 
   &-horizontal {
