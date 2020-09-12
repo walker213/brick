@@ -1,9 +1,9 @@
 import React, { useContext, FunctionComponentElement, useState } from 'react';
 import classnames from 'classnames';
-import { CSSTransition } from 'react-transition-group';
 import { MenuContext } from './menu';
 import { MenuItemProps } from './menuItem';
 import Icon from '../Icon/icon';
+import Transition from '../Transition/transition';
 import { addClassPrefixHOF } from '../../utils';
 
 const getFullClassName = addClassPrefixHOF('bui-menu-submenu');
@@ -61,10 +61,10 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
       throw new Error('error:Menu has a child which is not a MenuItem component');
     });
     return (
-      <CSSTransition in={menuOpen} timeout={300} classNames="zoom-in-top" appear unmountOnExit>
+      <Transition in={menuOpen} timeout={300} animation="zoom-in-bottom">
         {/* unmountOnExit in=false时组件卸载 */}
         <ul className={subMenuClasses}>{childrenComponent}</ul>
-      </CSSTransition>
+      </Transition>
     );
   };
   return (
