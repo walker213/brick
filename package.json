@@ -26,7 +26,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "commit": "git-cz",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "husky": {
     "hooks": {
@@ -66,16 +68,25 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.11.6",
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^9.1.2",
+    "@storybook/addon-actions": "^6.0.21",
+    "@storybook/addon-essentials": "^6.0.21",
+    "@storybook/addon-links": "^6.0.21",
+    "@storybook/node-logger": "^6.0.21",
+    "@storybook/preset-create-react-app": "^3.1.4",
+    "@storybook/react": "^6.0.21",
     "@types/classnames": "^2.2.10",
     "@types/react-transition-group": "^4.4.0",
     "@umijs/fabric": "^2.2.2",
+    "babel-loader": "^8.1.0",
     "commitizen": "^4.2.1",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.3.0",
     "node-sass": "^4.14.1",
-    "prettier": "^2.1.1"
+    "prettier": "^2.1.1",
+    "react-is": "^16.13.1"
   }
 }
