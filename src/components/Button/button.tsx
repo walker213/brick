@@ -5,7 +5,7 @@ import { addClassPrefixHOF } from '../../utils';
 const getFullClassName = addClassPrefixHOF('bui-btn');
 
 type ButtonSize = 'lg' | 'sm';
-type ButtonType = 'primary' | 'default' | 'danger' | 'link';
+export type ButtonType = 'primary' | 'default' | 'danger' | 'link';
 
 interface BaseButtonProps {
   // className/children 出自原生接口，不用自定义
@@ -19,7 +19,8 @@ type NativeButtonProps = BaseButtonProps & React.ButtonHTMLAttributes<HTMLElemen
 type AnchorButtonProps = BaseButtonProps & React.AnchorHTMLAttributes<HTMLElement>; // a 上的原生属性如 target
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>; // 将所有属性全部设置为可选（因为a和button上的必需属性不相同）
 
-const Button: React.FC<ButtonProps> = (props) => {
+// 这里的export是为配合 react-docgen-typescript 使用
+export const Button: React.FC<ButtonProps> = (props) => {
   const { btnType, disabled, size, href, className, children, ...restProps } = props;
   const classes = classnames(
     getFullClassName(),
